@@ -1,10 +1,11 @@
 import './App.scss';
+import Product from './product.js'
 
 // font-awesome icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -13,6 +14,12 @@ function App() {
           All products
         </div>
       </header>
+      <div className="content-wrapper">
+        <Product />
+        <div className="add-to-cart">
+          <button>ADD TO CART</button>
+        </div>
+      </div>
     </div>
   );
 }
