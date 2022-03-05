@@ -40,9 +40,9 @@ const Product = (props) => {
       </div>
       <div className="product-tab-container">
         <div className={ tabActive === "desc" ? "active" : "" }
-            onClick={ () => handleDesc() }>Description</div>
+            onClick={ () => handleDesc() }>DESCRIPTION</div>
         <div className={ tabActive === "dtl" ? "active" : "" }
-            onClick={ () => handleDtl() }>Details</div>
+            onClick={ () => handleDtl() }>DETAILS</div>
       </div>
       <div className="tab-contents">
         <Tab text={tab} />
@@ -52,7 +52,8 @@ const Product = (props) => {
         <span className="price-then">{ price_then }</span>
       </div>
       <div className="product-variant-container">
-        <select style={{ width: '50%' }} onChange={ (e) => changeVariant(e.target.value) } >
+        <label htmlFor="product-color">COLORS</label>
+        <select id="product-color" onChange={ (e) => changeVariant(e.target.value) } >
           {
             product_variant.map((v, i) => {
               return <option key={ i } value={ v.color }>{ v.color }</option>

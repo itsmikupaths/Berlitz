@@ -1,3 +1,14 @@
+// sass variables
+$font-color-base: #404040;
+$font-color-sub-1: #707070;
+$font-color-sub-2: #9b9b9b;
+
+$border-color: #f1f1f1;
+$border-back-ground: #ffffff;
+$border-bottom-color: #f1f1f1;;
+$border-color-blue: #457dd9;
+$button-color: #457dd9;
+
 .App {
   display: flex;
   flex-direction: column;
@@ -35,10 +46,11 @@
       h1 {
         padding: 0;
         margin: 0;
+        color: $font-color-base;
       }
 
       span {
-
+        color: $font-color-sub-2;
       }
     }
 
@@ -56,17 +68,19 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      border-bottom: 1px solid grey;
+      border-bottom: 1px solid $border-bottom-color;
       margin-bottom: 12px;
       padding: 0 10px !important;
 
       div {
-        padding: 12px 12px;
-        font-weight: bold;
-        margin-bottom: -2px;
+        cursor: pointer;
+        justify-content: center;
+        color: $font-color-sub-2;
 
         &.active {
-          border-bottom: 3px solid blue;
+          border-bottom: 3px solid $border-color-blue;
+          font-weight: bold;
+          color: $font-color-base !important;
         }
       }
     }
@@ -75,6 +89,7 @@
       display: flex;
       text-justify: inter-word;
       line-height: 1.8em;
+      color: $font-color-sub-1;
     }
 
     .product-price-container {
@@ -89,40 +104,143 @@
         font-weight: bold;
 
         &.price-now {
-
+          color: $font-color-base;
         }
 
         &.price-then {
           text-decoration: line-through;
+          color: $font-color-sub-2;
         }
       }
     }
 
     .product-variant-container {
       display: flex;
-      flex-direction: row;
-      border-bottom: 1px solid grey;
+      flex-direction: column;
+      border-bottom: 1px solid $border-bottom-color;
       padding: 28px 10px !important;
 
+      label {
+        margin-bottom: 10px;
+        color: $font-color-base;
+        font-weight: bold;
+      }
 
       select {
         margin: 1px;
         padding: 8px 5px;
+        border: 1px solid $border-color;
+        background-color: $border-back-ground;
+        border-radius: 3px;
+        color: $font-color-sub-1;
+        width: 50%;
       }
     }
 
     .add-to-cart {
       padding: 28px 10px !important;
+      margin-bottom: 50px;
 
       button {
-        background-color: blue;
+        background-color: $button-color;
         color: white;
         padding: 15px 25px;
-        border: 1px solid blue;
+        border: 1px solid $button-color;
         border-radius: 3px;
         font-size: bold;
       }
     }
   }
 
+}
+
+// media queries
+@media only screen and (min-width: 600px) {
+  .App {
+    .content-wrapper {
+      .product-variant-container {
+        select#product-color {
+          width: 35%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .App {
+    font-size: 1.2em;
+    .content-wrapper {
+      .product-image-container {
+        justify-content: center;
+        img {
+          width: 500px;
+        }
+      }
+
+      .product-variant-container {
+        select#product-color {
+          font-size: 1.3em;
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .App {
+    font-size: 1em;
+
+    .App-header {
+      width: 50%;
+      padding-top: 50px;
+      border-right: 1px solid $border-color;
+
+      .back-button {
+        padding-left: 50px;
+      }
+    }
+    
+    .content-wrapper {
+      width: 50%;
+      border-right: 1px solid $border-color;
+
+      .product-name-container {
+        margin-bottom: 25px;
+      }
+
+      .product-name-container, .product-tab-container, .tab-contents, .product-price-container,
+      .product-variant-container, .add-to-cart {
+        padding-left: 60px !important;
+      }
+
+      .product-image-container {
+        width: 45%;
+        position: absolute;
+        right: 40px;
+        top: 50px;
+      }
+
+      .product-tab-container {
+        margin-bottom: 20px;
+        // padding: 0 20px !important;
+        justify-content: flex-start;
+        font-size: .9em;
+
+        div {
+          padding: 10px;
+          margin-right: 20px;
+          width: 80px;
+        }
+      }
+
+      .product-variant-container {
+        select#product-color {
+          font-size: 1em;
+          width: 200px;
+        }
+      }
+    }
+  }
 }
