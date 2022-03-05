@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import Product from './product.js'
 import AddToCart from './AddToCart.js'
@@ -10,6 +10,7 @@ import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 const App = () => {
   const [cart, setCart] = useState([]);
   const [orderDetails, setOrderDetails] = useState({});
+  const [showMessage, setShowMessage] = useState(false);
 
   // json data of product (in real scenario, this data should be fetch from database or API)
   const productData = {
@@ -54,10 +55,21 @@ const App = () => {
       <div className="content-wrapper">
         <Product data={ productData } selectedVariant={ selectedVariant } />
         <div className="add-to-cart">
-          <AddToCart addToCart={ addToCart } />
+          <AddToCart addToCart={ addToCart } setShowMessage={ setShowMessage } />
+          { showMessage ? <SuccessMessage setShowMessage={ setShowMessage } /> : null }
         </div>
       </div>
     </div>
+  );
+}
+
+const SuccessMessage = (props) => {
+  useEffect(() => {
+    setTimeout(() => { props.setShowMessage(false) }, 2000);
+  });
+
+  return (
+    <div className="message">Item added to cart!</div>
   );
 }
 

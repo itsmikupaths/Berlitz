@@ -22,9 +22,12 @@ const AddToCart = (props) => {
     }
 
     setLoading(true);
-    setTimeout(() => { setLoading(false) }, 2000);
-    props.addToCart()
-    setMode("view-cart");
+    setTimeout(() => { 
+      setLoading(false);
+      props.setShowMessage(true);
+      props.addToCart();
+      setMode("view-cart");
+    }, 2000);
   }
 
   return (

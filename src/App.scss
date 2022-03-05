@@ -2,6 +2,7 @@
 $font-color-base: #404040;
 $font-color-sub-1: #707070;
 $font-color-sub-2: #9b9b9b;
+$font-color-success: #348334;
 
 $border-color: #f1f1f1;
 $border-back-ground: #ffffff;
@@ -140,6 +141,8 @@ $button-color: #457dd9;
     .add-to-cart {
       padding: 28px 10px !important;
       margin-bottom: 50px;
+      display: flex;
+      flex-direction: row;
 
       button {
         background-color: $button-color;
@@ -148,6 +151,16 @@ $button-color: #457dd9;
         border: 1px solid $button-color;
         border-radius: 3px;
         font-size: bold;
+      }
+
+      div.message {
+        display: flex;
+        align-items: center;
+        font-size: 1.2em;
+        margin-left: 20px;
+        color: $font-color-success;
+        transition-timing-function: ease-in;
+        transition: 1s;
       }
     }
   }
